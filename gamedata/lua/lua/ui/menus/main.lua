@@ -59,7 +59,7 @@ function CreateUI()
             color = menuFontColorAlt,
         },
         {
-            name = 'Unit Database',
+            name = '<LOC _MAINMENU_UNIT_DB>Unit Database',
             tooltip = 'mainmenu_unitdb',
             action = function() ButtonUnitDB() end,
             color = menuFontColorAlt,
@@ -87,7 +87,7 @@ function CreateUI()
             action = function() ButtonSkirmish() end,
         },
         {
-            name = 'Direct IP',
+            name = '<LOC MAINMENU_DIRECTIP>Direct IP',
             tooltip = 'mainmenu_mp',
             action = function() ButtonLAN() end,
         },
@@ -97,7 +97,7 @@ function CreateUI()
             action = function() ButtonMatchmaking() end,
         },
         {
-            name = 'Replay',
+            name = '<LOC MAINMENU__REPLAY>Replay',
             tooltip = 'mainmenu_replay',
             action = function() ButtonReplay() end,
             color = menuFontColorAlt,
@@ -149,13 +149,13 @@ function CreateUI()
     logo.Depth:Set(60)
 
     -- Version text
-    local gameVersionText = UIUtil.CreateText(border, "Game Version: "..GetVersion(), 14, UIUtil.bodyFont)
+    local gameVersionText = UIUtil.CreateText(border, LOC("<LOC MAINMENU_GAME_VERSION>Game Version: ")..GetVersion(), 14, UIUtil.bodyFont)
     gameVersionText:SetColor('677983')
     LayoutHelpers.AtLeftTopIn(gameVersionText, border, 0, 0)
     gameVersionText.Depth:Set(border.Depth() + 10)
 
     local loudVersion = import('/lua/AI/CustomAIs_v2/ExtrasAI.lua').AI.Version
-    local loudVersionText = UIUtil.CreateText(border, "LOUD Version: "..loudVersion, 14, UIUtil.bodyFont)
+    local loudVersionText = UIUtil.CreateText(border, LOC("<LOC MAINMENU_LOUD_VERSION>LOUD Version: ")..loudVersion, 14, UIUtil.bodyFont)
     loudVersionText:SetColor('677983')
     LayoutHelpers.Below(loudVersionText, gameVersionText)
     loudVersionText.Depth:Set(border.Depth() + 11)
@@ -927,7 +927,11 @@ function CreateUI()
 
     function ButtonExit()
         if not exitDlg then
-            exitDlg = UIUtil.QuickDialog(GetFrame(0), "Are you sure you'd like to exit?", "Yes", function() parent:Destroy() ExitApplication() end, "No", function() exitDlg = nil end, nil, nil, true, {worldCover = true, enterButton = 1, escapeButton = 2})
+            exitDlg = UIUtil.QuickDialog(GetFrame(0), 
+                LOC("<LOC EXIT_CONFIRMATION>Are you sure you'd like to exit?"),
+                LOC("<LOC _Yes>"), function() parent:Destroy() ExitApplication() end,
+                LOC("<LOC _No>"), function() exitDlg = nil end,
+                nil, nil, true, {worldCover = true, enterButton = 1, escapeButton = 2})
         end
     end
 
