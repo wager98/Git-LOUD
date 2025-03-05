@@ -59,7 +59,7 @@ function CreateUI()
             color = menuFontColorAlt,
         },
         {
-            name = 'Unit Database',
+            name = '<LOC _MAINMENU__Unit_Database>Unit Database',
             tooltip = 'mainmenu_unitdb',
             action = function() ButtonUnitDB() end,
             color = menuFontColorAlt,
@@ -87,7 +87,7 @@ function CreateUI()
             action = function() ButtonSkirmish() end,
         },
         {
-            name = 'Direct IP',
+            name = '<LOC MAINMENU_DIRECTIP>Direct IP',
             tooltip = 'mainmenu_mp',
             action = function() ButtonLAN() end,
         },
@@ -97,7 +97,7 @@ function CreateUI()
             action = function() ButtonMatchmaking() end,
         },
         {
-            name = 'Replay',
+            name = '<LOC MAINMENU__REPLAY>Replay',
             tooltip = 'mainmenu_replay',
             action = function() ButtonReplay() end,
             color = menuFontColorAlt,
